@@ -286,7 +286,7 @@ class IndexPage extends ControllerGear
             );
         } else {
             // Not a registered user? Go read the docs. No info leaks for you!
-            \Airship\redirect('https://github.com/paragonie/airship-docs');
+            \Airship\redirect('https://github.com/paragonie/airship/tree/master/docs');
         }
     }
 
