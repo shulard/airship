@@ -63,7 +63,7 @@ Run these commands to get PHP 7 installed. These instructions assume you have Ub
         echo -e "\033[33mDownloading PGP Public Key...\033[0m"
         gpg --recv-keys 6572BBEF1B5FF28B28B706837E3F070089DF5277
         # http://pgp.mit.edu/pks/lookup?op=vindex&fingerprint=on&search=0x6572BBEF1B5FF28B28B706837E3F070089DF5277
-        # DotDeb Signing Key 
+        # DotDeb Signing Key
         gpg --fingerprint 6572BBEF1B5FF28B28B706837E3F070089DF5277
         if [ $? -ne 0 ]; then
             echo -e "\033[31mCould not download PGP public key for verification\033[0m"
@@ -71,17 +71,17 @@ Run these commands to get PHP 7 installed. These instructions assume you have Ub
         fi
     fi
     gpg -a --export 6572BBEF1B5FF28B28B706837E3F070089DF5277 | sudo apt-key add -
-    
+
     # Install PHP from DotDeb
     sudo apt-get -y install php7.0 php7.0-cli php7.0-fpm php7.0-json php7.0-pgsql php7.0-curl php7.0-dev php7.0-mbstring php7.0-gd
     wget https://pear.php.net/go-pear.phar
-    
+
     # The PEAR team doesn't provide a GPG signature, so we have to do this:
     echo "8322214a6979a0917f0068af924428a80ff7083b94343396b13dac1d0f916748025fab72290af340d30633837222c277  go-pear.phar" | sha384sum -c
     if [ $? -eq 0 ]; then
         php go-pear.phar
     fi
-    
+
     sudo pecl install zip
     echo "extension=zip.so" > /etc/php/7.0/cli/conf.d/20-zip.ini
     echo "extension=zip.so" > /etc/php/7.0/fpm/conf.d/zip.ini
@@ -95,7 +95,7 @@ Run these commands to get PHP 7 installed. These instructions assume you have Ub
         echo -e "\033[33mDownloading PGP Public Key...\033[0m"
         gpg --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
         # http://pgp.mit.edu/pks/lookup?op=vindex&fingerprint=on&search=0xB97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
-        # PostgreSQL Signing Key 
+        # PostgreSQL Signing Key
         gpg --fingerprint B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
         if [ $? -ne 0 ]; then
             echo -e "\033[31mCould not download PGP public key for verification\033[0m"
@@ -103,7 +103,7 @@ Run these commands to get PHP 7 installed. These instructions assume you have Ub
         fi
     fi
     gpg -a --export B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8 | sudo apt-key add -
-    
+
     # Now. let's install PostgreSQL
     sudo apt-get update
     sudo apt-get install postgresql-9.5
@@ -188,13 +188,13 @@ If you haven't already done so, restart your webserver then visit the URL or IP
 address that corresponds to the active virtual host in your browser.
 
 Once you access the web installer, a security cookie is placed in your browser
-which prevents anyone from accessing the installer until the process is 
+which prevents anyone from accessing the installer until the process is
 finished. If you get locked out, run this command and reload
 the page. (You will have to start over, but the process is brief.)
 
     php src/Installer/launch.php reset
-    
+
 From this point, follow the prompts on the web-based installer and you'll be
 ready to take off.
 
-[Next: Basic Usage](https://github.com/paragonie/airship-docs/tree/master/en-us/02-basic-usage).
+[Next: Basic Usage](https://github.com/paragonie/airship/tree/master/docs/en-us/02-basic-usage).

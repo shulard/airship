@@ -5,7 +5,7 @@
 Hay un archivo docker-compose.yml en [el repositorio principal](https://github.com/paragonie/airship) que usado junto con
 docker-compose construirá el software requerido. Leer [la documentaciòn oficial de docker](https://docs.docker.com/compose/overview/) para màs detalles sobre còmo utilizar docker-compose.
 
-## Instalación Manual 
+## Instalación Manual
 
 > Nota: Si tiene problemas al verificar las firmas GPG, puede que necesite
 > [cambiar la ruta de PGP](http://jotham-city.com/blog/2015/02/14/verifying-gpg-signatures-for-makepkg/).
@@ -63,7 +63,7 @@ Ejecute estos comandos para instalar PHP 7. Estas instrucciones asumn que tiene 
         echo -e "\033[33mDownloading PGP Public Key...\033[0m"
         gpg --recv-keys 6572BBEF1B5FF28B28B706837E3F070089DF5277
         # http://pgp.mit.edu/pks/lookup?op=vindex&fingerprint=on&search=0x6572BBEF1B5FF28B28B706837E3F070089DF5277
-        # DotDeb Signing Key 
+        # DotDeb Signing Key
         gpg --fingerprint 6572BBEF1B5FF28B28B706837E3F070089DF5277
         if [ $? -ne 0 ]; then
             echo -e "\033[31mCould not download PGP public key for verification\033[0m"
@@ -71,17 +71,17 @@ Ejecute estos comandos para instalar PHP 7. Estas instrucciones asumn que tiene 
         fi
     fi
     gpg -a --export 6572BBEF1B5FF28B28B706837E3F070089DF5277 | sudo apt-key add -
-    
+
     # Instalar PHP desde DotDeb
     sudo apt-get -y install php7.0 php7.0-cli php7.0-fpm php7.0-json php7.0-pgsql php7.0-curl php7.0-dev php7.0-mbstring php7.0-gd
     wget https://pear.php.net/go-pear.phar
-    
+
     # PEAR team no provee una firma GPG, así que tendremos que hacer ésto:
     echo "8322214a6979a0917f0068af924428a80ff7083b94343396b13dac1d0f916748025fab72290af340d30633837222c277  go-pear.phar" | sha384sum -c
     if [ $? -eq 0 ]; then
         php go-pear.phar
     fi
-    
+
     sudo pecl install zip
     echo "extension=zip.so" > /etc/php/7.0/cli/conf.d/20-zip.ini
     echo "extension=zip.so" > /etc/php/7.0/fpm/conf.d/zip.ini
@@ -95,7 +95,7 @@ Ejecute estos comandos para instalar PHP 7. Estas instrucciones asumn que tiene 
         echo -e "\033[33mDownloading PGP Public Key...\033[0m"
         gpg --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
         # http://pgp.mit.edu/pks/lookup?op=vindex&fingerprint=on&search=0xB97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
-        # PostgreSQL Signing Key 
+        # PostgreSQL Signing Key
         gpg --fingerprint B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
         if [ $? -ne 0 ]; then
             echo -e "\033[31mCould not download PGP public key for verification\033[0m"
@@ -103,7 +103,7 @@ Ejecute estos comandos para instalar PHP 7. Estas instrucciones asumn que tiene 
         fi
     fi
     gpg -a --export B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8 | sudo apt-key add -
-    
+
     # Ahora, a instalar PostgreSQL
     sudo apt-get update
     sudo apt-get install postgresql-9.5
@@ -188,13 +188,13 @@ Si no lo ha hecho todavía, reinicie su webserver y visite su URL o dirección I
 que corresponde al host virtual activo en su browser.
 
 Una vez que haya accedido al instalador,una cookie de seguridad es puesta en su navegador,
-la cual evita que cualquier otra persona entre al instalador hasta que el proceso haya 
+la cual evita que cualquier otra persona entre al instalador hasta que el proceso haya
 terminado. Si por alguna razón ha quedado fuera, ejecute este comando y refresque
 la página. (Tendrá que hacer todo de nuevo, pero el proceso no tarda mucho.)
 
     php src/Installer/launch.php reset
-    
+
 A partir de aquí, siga las instrucciones en el navegador y estará
 listo para despegar.
 
-[Siguiente: Uso Básico](https://github.com/paragonie/airship-docs/tree/master/en-us/02-basic-usage).
+[Siguiente: Uso Básico](https://github.com/paragonie/airship/tree/master/docs/en-us/02-basic-usage).

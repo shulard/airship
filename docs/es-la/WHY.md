@@ -9,27 +9,27 @@
 
 ### 1. Digitally signed automatic security updates.
 
-Unlike other frameworks and content management systems, our authenticated 
+Unlike other frameworks and content management systems, our authenticated
 automatic security updating mechanism is a **first-class design decision**.
 
-If a security vulnerability is ever discovered in Airship, the patch 
+If a security vulnerability is ever discovered in Airship, the patch
 will automatically be applied in your website within an hour of being
 released by our team.
 
-All security updates will be digitally signed with a secret key to 
+All security updates will be digitally signed with a secret key to
 guarantee authenticity; the associated public key is packaged with the
 default Airship configuration. The digital signature algorithm we use is
 **`Ed25519`** (facilitated by libsodium).
 
 We take extra care when handling our secret key; should it ever be
-compromised, we will use our backup key to revoke the old one and 
+compromised, we will use our backup key to revoke the old one and
 replace it with a new one.
 
 You can disable the auto-update feature from the Bridge, but we do not
 recommend doing this.
 
-You can also choose to trust someone else's mirrors and public key 
-instead of ours. The code is completely open, but you only need change a 
+You can also choose to trust someone else's mirrors and public key
+instead of ours. The code is completely open, but you only need change a
 JSON configuration file to decide to trust someone else.
 
 ### 2. The community is always in control of any add-ons it produces.
@@ -37,17 +37,17 @@ JSON configuration file to decide to trust someone else.
 Airship offers three strategies for extending its base features:
 
 1. Cabins, which are entire applications (see #3 below).
-2. Gadgets, which are plugins that can be applied at a per-Cabin level 
+2. Gadgets, which are plugins that can be applied at a per-Cabin level
    or across every Cabin in your ship.
-3. Motifs, which change the look and feel of your Airship. 
+3. Motifs, which change the look and feel of your Airship.
 
 All Cabins, Gadgets, and Motifs can be assigned to a vendor (which has
-its own Ed25519 key pair), and that supplier has control of the 
+its own Ed25519 key pair), and that supplier has control of the
 distribution of automatic updates.
 
-**This gives you, the supplier, control over your add-ons**, not us. 
+**This gives you, the supplier, control over your add-ons**, not us.
 Neither the Airship development team nor Paragon Initiative Enterprises
-can prevent your users from installing, updating, or using any add-on. 
+can prevent your users from installing, updating, or using any add-on.
 
 We *can* still de-list abusive add-ons from the official SkyPort, but
 anyone can operate their own and we will always aspire to make switching
@@ -58,7 +58,7 @@ barriers to entry.
 
 ### 3. Supports a multi-site architecture out of the box.
 
-Each Cabin is its own website. Install as many Cabins as you need. No 
+Each Cabin is its own website. Install as many Cabins as you need. No
 questionable hacks needed.
 
 ### 4. Designed by progressive-minded application security professionals.
@@ -68,9 +68,9 @@ We specialize in application security and applied cryptography.
 
 ### 5. Our Gear system allows the framework to be extended.
 
-Because of our auto-updater, any local changes made to the Engine files 
+Because of our auto-updater, any local changes made to the Engine files
 will be obliterated whenever an upstream change occurs. To allow users
-to extend and customize the core classes to meet their needs, we 
+to extend and customize the core classes to meet their needs, we
 designed our application around the `Gears` system.
 
 Most of the core `Engine` classes can be extended at runtime by the
@@ -83,7 +83,7 @@ accessing the core classes directly, load the latest version of the Gear
 Compare, for example, [this long guide to securing WordPress](https://codex.wordpress.org/Hardening_WordPress)
 with our guide to securing Airship:
 
-1. Use TLS (if you use [Caddy](https://github.com/paragonie/airship-docs/blob/master/en-us/01-intro/2-Installing.md#caddy-recommended),
+1. Use TLS (if you use [Caddy](https://github.com/paragonie/airship/tree/master/docs/en-us/01-intro/2-Installing.md#caddy-recommended),
    this is automatic in production environments).
 2. Don't disable automatic updates.
 3. Use a strong password.
@@ -95,7 +95,7 @@ of Service attacks. Even if our infrastrucutre is compromised, your Airship is
 protected by [strong cryptography](https://paragonie.com/blog/2016/05/keyggdrasil-continuum-cryptography-powering-cms-airship).
 
 ### Vulnerabilities we Prevent
- 
+
 What follows is a list of security vulnerabilities you will almost certainly
 never have to worry about if you use CMS Airship.
 
@@ -103,7 +103,7 @@ never have to worry about if you use CMS Airship.
   * Airship uses a virtual filesystem that offers read-only access (and only
     to authorized users) to uploaded files. Files will never execute in the
     server nor in your browser.
-* **SQL Injection** is effectively mitigated by our use of prepared 
+* **SQL Injection** is effectively mitigated by our use of prepared
   statements in nearly every context. Where prepared statements aren't
   used, a typecast to int or strict whitelist of allowed characters is
   enforced instead.

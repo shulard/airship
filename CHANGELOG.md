@@ -72,7 +72,7 @@
     different input formats.
   * [#146](https://github.com/paragonie/airship/issues/146):
     Created a button to purge the caches.
-  * Hid the link to view blog post history, as that feature was 
+  * Hid the link to view blog post history, as that feature was
     overlooked. We'll implement it in version 1.4.0.
   * Some image types can be viewed directly instead of always forcing a
     download. The enforcement logic is a whitelist (that gadgets can
@@ -83,7 +83,7 @@
   * Significant UI/UX improvements.
     * Redesigned the Bridge UI to be more suitable for a control panel.
     * The left menu in the Bridge is now collapsable, but automatically
-      opens the sections which indicate your current location in the 
+      opens the sections which indicate your current location in the
       cabin.
   * Update [Halite](https://github.com/paragonie/halite) to 2.2.0.
   * Added a `WhiteList` filter, which is a strict typed alternative to
@@ -142,7 +142,7 @@
 ## Version 1.2.2 - 2016-07-13
 
   * Improved Continuum/Keyggdrasil logging.
-  * Created a tool for automating step one of the installer from the command 
+  * Created a tool for automating step one of the installer from the command
     line.
 
 ## Version 1.2.1 - 2016-07-09
@@ -173,10 +173,10 @@
     Added a faster install option for deploying an Airship in a hurry, with the
     sane defaults we provide.
   * [#77](https://github.com/paragonie/airship/issues/77):
-    Fixed responsive UI/UX warts (i.e. small links and buttons). 
+    Fixed responsive UI/UX warts (i.e. small links and buttons).
   * [#80](https://github.com/paragonie/airship/issues/80):
     If the GD extension isn't loaded, render QR codes for two-factor
-    authentication as SVG instead. 
+    authentication as SVG instead.
   * [#88](https://github.com/paragonie/airship/issues/88):
     The installer now uses Zxcvbn to enforce a minimum password strength for
     administrator accounts.
@@ -189,12 +189,12 @@
 
   * i18n - run parameters through HTMLPurifier (with caching) to prevent future
     XSS payloads in case someone forgets to escape these parameters. HTML is
-    still allowed, so if you're inserting in an HTML attribute, use the 
+    still allowed, so if you're inserting in an HTML attribute, use the
     `|e('html_attr')` filter on your input.
   * Use the correct POST index in account recovery.
   * Treat SVG and XML files as plaintext, to prevent stored XSS. Reported on
     [HackerOne](https://hackerone.com/reports/148853).
-  * Send `Content-Security-Policy` headers on file downloads as well as web 
+  * Send `Content-Security-Policy` headers on file downloads as well as web
     pages. Just in case another file type exists in the world that executes
     JavaScript when the file is viewed.
 
@@ -216,7 +216,7 @@
 
   Fixes for bugs reported by [@kelunik](https://github.com/kelunik) and
   [@co60ca](https://github.com/co60ca).
-  
+
   * [#61](https://github.com/paragonie/airship/issues/61):
     Comments need a min-height attribute.
   * [#62](https://github.com/paragonie/airship/issues/62), [#64](https://github.com/paragonie/airship/issues/64):
@@ -310,7 +310,7 @@
   * Implemented input filters which work on multidimensional arrays (e.g
     `$_POST`). We provide a few examples (one for each cabin's custom config
     and one for the universal config).
-  * Implemented optional **Two-Factor Authentication** support via TOTP 
+  * Implemented optional **Two-Factor Authentication** support via TOTP
     (e.g. Google Authenticator).
   * Airship now supports in-memory caching via APCu instead of the filesystem.
   * Comments are now loaded with AJAX when you elect to cache a blog post.
@@ -353,7 +353,7 @@
   * Users can now selected uploaded image files to use for biography images and
     avatars to accompany their blog comments.
   * Lots of reorganization, refactoring, and clean-up.
-  * Moved the [CMS Airship Documentation](https://github.com/paragonie/airship-docs)
+  * Moved the [CMS Airship Documentation](https://github.com/paragonie/airship/tree/master/docs)
     to its own dedicated git repository.
   * When you change a blog post's slug, you can optionally create an HTTP 301
     redirect to the new URL to prevent visitors from getting an unfortunate
