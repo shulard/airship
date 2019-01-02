@@ -20,7 +20,7 @@
     "email": "security@paragonie.com",
     "issues": "https://github.com/paragonie/airship/issues",
     "source": "https://github.com/paragonie/airship",
-    "docs": "https://github.com/paragonie/airship-docs"
+    "docs": "https://github.com/paragonie/airship/tree/master/docs"
   },
   "keywords": [
     "Airship",
